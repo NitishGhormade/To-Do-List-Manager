@@ -26,7 +26,14 @@ add_task() {
 }
 
 # Function to view tasks
-
+view_tasks() {
+  if [[ -f "$TODO_FILE" && -s "$TODO_FILE" ]]; then
+    echo "Your Tasks:"
+    nl -w2 -s'. ' "$TODO_FILE"
+  else
+    echo "No tasks found!"
+  fi
+}
 
 # Function to delete a task
 delete_task() {
